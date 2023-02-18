@@ -1,15 +1,10 @@
 #include <stdio.h>
-
 /**
- 
-  * main - print to screen
-  *
-  * Return: zero
-  */
+ * main - Program that Use the function puts
+ * Return: 0 (Success)
+ */
 int main(void)
 {
-	char Mystr[] = "\"Programming is like building a multilingual puzzle";
-
-	puts(Mystr);
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
