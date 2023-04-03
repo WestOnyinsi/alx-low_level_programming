@@ -6,10 +6,10 @@
  *
  * Return: pointer to the first node in the new list
  */
-listintx *reverse_listint(listintx **head)
+listint_t *reverse_listint(listint_t **head)
 {
- listintx *prev = NULL;
- listintx *next = NULL;
+ listint_t *prev = NULL;
+ listint_t *next = NULL;
 
  while (*head)
  {
