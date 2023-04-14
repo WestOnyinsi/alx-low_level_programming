@@ -6,21 +6,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void check_elf(unsigned char *e_identifier);
-void print_magic(unsigned char *e_identifier);
-void print_class(unsigned char *e_identifier);
-void print_data(unsigned char *e_identifier);
-void print_version(unsigned char *e_identifier);
-void print_abi(unsigned char *e_identifier);
-void print_osabi(unsigned char *e_identifier);
-void print_type(unsigned int e_type, unsigned char *e_identifier);
-void print_entry(unsigned long int e_entry, unsigned char *e_identifier);
+void check_elf(unsigned char *e_ident);
+void print_magic(unsigned char *e_ident);
+void print_class(unsigned char *e_ident);
+void print_data(unsigned char *e_ident);
+void print_version(unsigned char *e_ident);
+void print_abi(unsigned char *e_ident);
+void print_osabi(unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
+void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
  * @e_ident: A poi
  */
-void check_elf(unsigned char *e_identifier)
+void check_elf(unsigned char *e_ident)
 {
 	int index;
 
@@ -41,7 +41,7 @@ void check_elf(unsigned char *e_identifier)
  * @e_ident: A po
  *
  */
-void print_magic(unsigned char *e_identifier)
+void print_magic(unsigned char *e_ident)
 {
 	int index;
 
@@ -61,7 +61,7 @@ void print_magic(unsigned char *e_identifier)
 /**
  * @e_ident: A 
  */
-void print_class(unsigned char *e_identifier)
+void print_class(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
 
@@ -84,7 +84,7 @@ void print_class(unsigned char *e_identifier)
 /**
  * @e_ident: A pointer 
  */
-void print_data(unsigned char *e_identifier)
+void print_data(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
 
@@ -107,7 +107,7 @@ void print_data(unsigned char *e_identifier)
 /**
  * @e_ident: A 
  */
-void print_version(unsigned char *e_identifier)
+void print_version(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
 	       e_ident[EI_VERSION]);
@@ -126,7 +126,7 @@ void print_version(unsigned char *e_identifier)
 /**
  * @e_ident: 
  */
-void print_osabi(unsigned char *e_identifier)
+void print_osabi(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
 
@@ -170,7 +170,7 @@ void print_osabi(unsigned char *e_identifier)
 /**
  * @e_ident: A poi
  */
-void print_abi(unsigned char *e_identifier)
+void print_abi(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
 	       e_ident[EI_ABIVERSION]);
@@ -180,7 +180,7 @@ void print_abi(unsigned char *e_identifier)
  * @e_type: ELF type.
  * @e_ident:  pointer to an array containing the ELF class.
  */
-void print_type(unsigned int e_type, unsigned char *e_identifier)
+void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
@@ -213,7 +213,7 @@ void print_type(unsigned int e_type, unsigned char *e_identifier)
  * @e_entry: address 
  * @e_ident: A po
  */
-void print_entry(unsigned long int e_entry, unsigned char *e_identifier)
+void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
 
