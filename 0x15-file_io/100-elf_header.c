@@ -6,24 +6,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void check_elf(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
-void print_abi(unsigned char *e_ident);
-void print_osabi(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry(unsigned long int e_entry, unsigned char *e_ident);
+void check_elf(unsigned char *e_identifier);
+void print_thizzzmagic(unsigned char *e_identifier);
+void print_thizzzclass(unsigned char *e_identifier);
+void print_thizzzdata(unsigned char *e_identifier);
+void print_thizzzversion(unsigned char *e_identifier);
+void print_thizzzabi(unsigned char *e_identifier);
+void print_thizzzosabi(unsigned char *e_identifier);
+void print_thizzztype(unsigned int e_type, unsigned char *e_identifier);
+void print_thizzzentry(unsigned long int e_entry, unsigned char *e_identifier);
 void close_elf(int elf);
 
 /**
- * check_elf - Checks if a file is an ELF file.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
- *
- * Description: If the file is not an ELF file - exit code 98.
+ 
  */
-void check_elf(unsigned char *e_ident)
+void check_elf(unsigned char *e_identifier)
 {
 	int index;
 
@@ -41,12 +39,10 @@ void check_elf(unsigned char *e_ident)
 }
 
 /**
- * print_magic - Prints the magic numbers of an ELF header.
- * @e_ident: A pointer to an array containing the ELF magic numbers.
- *
- * Description: Magic numbers are separated by spaces.
+ * print_thizzzmagic - 
+ * @e_ident: guguygu yyffftydrserr
  */
-void print_magic(unsigned char *e_ident)
+void print_thizzzmagic(unsigned char *e_identifier)
 {
 	int index;
 
@@ -64,10 +60,10 @@ void print_magic(unsigned char *e_ident)
 }
 
 /**
- * print_class - Prints the class of an ELF header.
- * @e_ident: A pointer to an array containing the ELF class.
+ * print_thizzzclass - Prints the class of an ELF header.
+ * @e_ident:ddtrdtw4w4 555i rfy6f66 7or76yfyt
  */
-void print_class(unsigned char *e_ident)
+void print_thizzzclass(unsigned char *e_identifier)
 {
 	printf("  Class:                             ");
 
@@ -88,10 +84,10 @@ void print_class(unsigned char *e_ident)
 }
 
 /**
- * print_data - Prints the data of an ELF header.
- * @e_ident: A pointer to an array containing the ELF class.
+ * print_thizzzdata g f76r67rfftf6f6s4 sess 4sx4ss
+ * @e_ident:fdfgxfsewes343 ws43s 5trff6urfu75rr867  76f65d5e4s3w23es fgtfvyfolgllu98y yg767g65dcexwex3
  */
-void print_data(unsigned char *e_ident)
+void print_thizzzdata(unsigned char *e_identifier)
 {
 	printf("  Data:                              ");
 
@@ -112,10 +108,10 @@ void print_data(unsigned char *e_ident)
 }
 
 /**
- * print_version - Prints the version of an ELF header.
- * @e_ident: A pointer to an array containing the ELF version.
+ * print_thizzzversion -
+ * @e_ident: guyglfrtdxrd44d 4 54  ed4dydy
  */
-void print_version(unsigned char *e_ident)
+void print_thizzzversion(unsigned char *e_identifier)
 {
 	printf("  Version:                           %d",
 	       e_ident[EI_VERSION]);
@@ -132,10 +128,10 @@ void print_version(unsigned char *e_ident)
 }
 
 /**
- * print_osabi - Prints the OS/ABI of an ELF header.
- * @e_ident: A pointer to an array containing the ELF version.
+ * print_thizzzosabi -
+ * @e_ident: ffydyf xes43s s34ss 3s4 7ws3ws4s67rrf7ri rr6 r7r687t78t78r 97t 7tigg
  */
-void print_osabi(unsigned char *e_ident)
+void print_thizzzosabi(unsigned char *e_identifier)
 {
 	printf("  OS/ABI:                            ");
 
@@ -177,21 +173,21 @@ void print_osabi(unsigned char *e_ident)
 }
 
 /**
- * print_abi - Prints the ABI version of an ELF header.
+ * print_thizzzabi - Prints the ABI version of an ELF header.
  * @e_ident: A pointer to an array containing the ELF ABI version.
  */
-void print_abi(unsigned char *e_ident)
+void print_thizzzabi(unsigned char *e_identifier)
 {
 	printf("  ABI Version:                       %d\n",
 	       e_ident[EI_ABIVERSION]);
 }
 
 /**
- * print_type - Prints the type of an ELF header.
+ * print_thizzztype - Prints the type of an ELF header.
  * @e_type: The ELF type.
  * @e_ident: A pointer to an array containing the ELF class.
  */
-void print_type(unsigned int e_type, unsigned char *e_ident)
+void print_thizzztype(unsigned int e_type, unsigned char *e_identifier)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
@@ -221,11 +217,11 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 }
 
 /**
- * print_entry - Prints the entry point of an ELF header.
+ * print_thizzzentry - Prints the entry point of an ELF header.
  * @e_entry: The address of the ELF entry point.
  * @e_ident: A pointer to an array containing the ELF class.
  */
-void print_entry(unsigned long int e_entry, unsigned char *e_ident)
+void print_thizzzentry(unsigned long int e_entry, unsigned char *e_identifier)
 {
 	printf("  Entry point address:               ");
 
@@ -260,15 +256,8 @@ void close_elf(int elf)
 }
 
 /**
- * main - Displays the information contained in the
- *        ELF header at the start of an ELF file.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
- *
- * Return: 0 on success.
- *
- * Description: If the file is not an ELF File or
- *              the function fails - exit code 98.
+ * @argc: tfcytfhc
+ * @argv: guygu76g7f  f6i5 d6dd54dsess cfyfg7tg  f6f rdtddh
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
@@ -299,14 +288,14 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	check_elf(header->e_ident);
 	printf("ELF Header:\n");
-	print_magic(header->e_ident);
-	print_class(header->e_ident);
-	print_data(header->e_ident);
-	print_version(header->e_ident);
-	print_osabi(header->e_ident);
-	print_abi(header->e_ident);
-	print_type(header->e_type, header->e_ident);
-	print_entry(header->e_entry, header->e_ident);
+	print_thizzzmagic(header->e_ident);
+	print_thizzzclass(header->e_ident);
+	print_thizzzdata(header->e_ident);
+	print_thizzzversion(header->e_ident);
+	print_thizzzosabi(header->e_ident);
+	print_thizzzabi(header->e_ident);
+	print_thizzztype(header->e_type, header->e_ident);
+	print_thizzzentry(header->e_entry, header->e_ident);
 
 	free(header);
 	close_elf(o);
