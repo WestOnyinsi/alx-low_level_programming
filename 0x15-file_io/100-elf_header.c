@@ -7,14 +7,14 @@
 #include <stdlib.h>
 
 void check_elf(unsigned char *e_identifier);
-void print_thizzzzmagic(unsigned char *e_identifier);
-void print_thizzzzclass(unsigned char *e_identifier);
-void print_thizzzzdata(unsigned char *e_identifier);
-void print_thizzzzversion(unsigned char *e_identifier);
-void print_thizzzzabi(unsigned char *e_identifier);
-void print_thizzzzosabi(unsigned char *e_identifier);
-void print_thizzzztype(unsigned int e_type, unsigned char *e_identifier);
-void print_thizzzzentry(unsigned long int e_entry, unsigned char *e_identifier);
+void print_magic(unsigned char *e_identifier);
+void print_class(unsigned char *e_identifier);
+void print_data(unsigned char *e_identifier);
+void print_version(unsigned char *e_identifier);
+void print_abi(unsigned char *e_identifier);
+void print_osabi(unsigned char *e_identifier);
+void print_type(unsigned int e_type, unsigned char *e_identifier);
+void print_entry(unsigned long int e_entry, unsigned char *e_identifier);
 void close_elf(int elf);
 
 /**
@@ -41,7 +41,7 @@ void check_elf(unsigned char *e_identifier)
  * @e_identifier: A po
  *
  */
-void print_thizzzzmagic(unsigned char *e_identifier)
+void print_magic(unsigned char *e_identifier)
 {
 	int index;
 
@@ -61,7 +61,7 @@ void print_thizzzzmagic(unsigned char *e_identifier)
 /**
  * @e_identifier: A 
  */
-void print_thizzzzclass(unsigned char *e_identifier)
+void print_class(unsigned char *e_identifier)
 {
 	printf("  Class:                             ");
 
@@ -84,7 +84,7 @@ void print_thizzzzclass(unsigned char *e_identifier)
 /**
  * @e_identifier: A pointer 
  */
-void print_thizzzzdata(unsigned char *e_identifier)
+void print_data(unsigned char *e_identifier)
 {
 	printf("  Data:                              ");
 
@@ -107,7 +107,7 @@ void print_thizzzzdata(unsigned char *e_identifier)
 /**
  * @e_identifier: A 
  */
-void print_thizzzzversion(unsigned char *e_identifier)
+void print_version(unsigned char *e_identifier)
 {
 	printf("  Version:                           %d",
 	       e_identifier[EI_VERSION]);
@@ -126,7 +126,7 @@ void print_thizzzzversion(unsigned char *e_identifier)
 /**
  * @e_identifier: 
  */
-void print_thizzzzosabi(unsigned char *e_identifier)
+void print_osabi(unsigned char *e_identifier)
 {
 	printf("  OS/ABI:                            ");
 
@@ -170,7 +170,7 @@ void print_thizzzzosabi(unsigned char *e_identifier)
 /**
  * @e_identifier: A poi
  */
-void print_thizzzzabi(unsigned char *e_identifier)
+void print_abi(unsigned char *e_identifier)
 {
 	printf("  ABI Version:                       %d\n",
 	       e_identifier[EI_ABIVERSION]);
@@ -180,7 +180,7 @@ void print_thizzzzabi(unsigned char *e_identifier)
  * @e_type: ELF type.
  * @e_identifier:  pointer to an array containing the ELF class.
  */
-void print_thizzzztype(unsigned int e_type, unsigned char *e_identifier)
+void print_type(unsigned int e_type, unsigned char *e_identifier)
 {
 	if (e_identifier[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
@@ -213,7 +213,7 @@ void print_thizzzztype(unsigned int e_type, unsigned char *e_identifier)
  * @e_entry: address 
  * @e_identifier: A po
  */
-void print_thizzzzentry(unsigned long int e_entry, unsigned char *e_identifier)
+void print_entry(unsigned long int e_entry, unsigned char *e_identifier)
 {
 	printf("  Entry point address:               ");
 
@@ -278,14 +278,14 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	check_elf(header->e_identifier);
 	printf("ELF Header:\n");
-	print_thizzzzmagic(header->e_identifier);
-	print_thizzzzclass(header->e_identifier);
-	print_thizzzzdata(header->e_identifier);
-	print_thizzzzversion(header->e_identifier);
-	print_thizzzzosabi(header->e_identifier);
-	print_thizzzzabi(header->e_identifier);
-	print_thizzzztype(header->e_type, header->e_identifier);
-	print_thizzzzentry(header->e_entry, header->e_identifier);
+	print_magic(header->e_identifier);
+	print_class(header->e_identifier);
+	print_data(header->e_identifier);
+	print_version(header->e_identifier);
+	print_osabi(header->e_identifier);
+	print_abi(header->e_identifier);
+	print_type(header->e_type, header->e_identifier);
+	print_entry(header->e_entry, header->e_identifier);
 
 	free(header);
 	close_elf(o);
